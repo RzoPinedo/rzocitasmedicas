@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RzoMediCare</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#0284C7;--s:#0369A1;--bg:#F0F9FF;--w:#fff;--ok:#10B981;--t:#0F172A;--t2:#64748B;--b:#E2E8F0}
+*{box-sizing:border-box}body{margin:0;font-family:'Plus Jakarta Sans',Inter,sans-serif;color:var(--t2);background:var(--bg);font-size:15px}
+h1,h2,h3{color:var(--t);margin:0 0 8px}a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:5;background:var(--w);display:flex;align-items:center;gap:20px;padding:12px 5%;box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
+nav .l{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--p);font-size:20px;margin-right:auto}nav .l img{height:36px}
+nav a.k{font-weight:600}.btn{border:0;cursor:pointer;border-radius:50px;padding:11px 22px;font:700 13px inherit;background:var(--p);color:#fff;text-transform:uppercase;font-family:inherit}
+.btn:hover{background:var(--s)}.btn.o{background:transparent;border:1px solid var(--p);color:var(--p)}.btn.sm{padding:6px 14px;font-size:12px}.btn.r{background:#dc2626}
+.hero{background:linear-gradient(135deg,#E0F2FE,#F0F9FF) center/cover;padding:60px 5% 90px;border-radius:0 0 50% 50%/0 0 60px 60px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,46px)}.hero .ph{font-size:clamp(90px,16vw,170px);text-align:center}
+.sr{display:flex;gap:8px;background:var(--w);padding:8px;border-radius:50px;border:1px solid var(--b);margin-top:18px;max-width:480px}
+.sr input{flex:1;border:0;outline:0;padding:0 12px;font:inherit;min-width:0}
+section{padding:40px 5%}.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.c{background:var(--w);border:1px solid var(--b);border-radius:16px;padding:18px;box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
+.ic{width:56px;height:56px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:26px;margin-bottom:10px;position:relative}
+.on::after{content:"";position:absolute;right:2px;bottom:2px;width:12px;height:12px;background:var(--ok);border:2px solid #fff;border-radius:50%}
+.tag{display:inline-block;background:var(--bg);color:var(--s);border-radius:20px;padding:2px 10px;font-size:12px;font-weight:700}
+.step{margin-bottom:16px}.step.off{opacity:.45;pointer-events:none}.step h3 span{background:var(--p);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:13px;margin-right:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.cg i{font-style:normal;font-weight:700}
+.d{border:0;background:none;border-radius:50%;aspect-ratio:1;font:inherit;position:relative;color:#cbd5e1}.d.ok{color:var(--t);cursor:pointer}.d.ok::after{content:"";position:absolute;bottom:3px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--ok)}
+.d.sel{background:var(--p);color:#fff}.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;text-transform:capitalize}.ch button{border:0;background:var(--bg);border-radius:50%;width:30px;height:30px;cursor:pointer}
+.sl{display:flex;flex-wrap:wrap;gap:8px}.sl button{border:1px solid var(--p);background:none;color:var(--p);border-radius:50px;padding:8px 16px;cursor:pointer;font:inherit;font-weight:700}.sl button.sel{background:var(--p);color:#fff}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:10px;font:inherit;margin:4px 0 10px;background:#fff}label{font-weight:700;color:var(--t);font-size:13px}
+footer{background:var(--t);color:#cbd5e1;text-align:center;padding:26px 5%}
+.msg{padding:10px 14px;border-radius:10px;margin:8px 0}.msg.ok{background:#d1fae5;color:#065f46}.msg.er{background:#fee2e2;color:#991b1b}
+.md{position:fixed;inset:0;background:rgba(15,23,42,.6);display:none;place-items:center;z-index:9;padding:16px}.md.show{display:grid}.md .c{width:100%;max-width:360px}
+.tb{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:640px}th,td{text-align:left;padding:9px;border-bottom:1px solid var(--b);font-size:13px}th{color:var(--t)}
+.tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.st b{display:block;font-size:28px;color:var(--p)}
+.hid{display:none!important}
+@media(max-width:760px){.hero{grid-template-columns:1fr;border-radius:0 0 40px 40px;text-align:center}.hero .sr{margin:18px auto}nav a.k{display:none}.two{grid-template-columns:1fr}}
+</style></head><body>
+<nav><div class="l"><span id="lg">🩺</span><span id="brand">MediCare</span></div>
+<a class="k" href="#servicios">Servicios</a><a class="k" href="#doctores">Doctores</a><a class="k" href="#reserva">Reservar</a>
+<button class="btn o sm" id="bAdm" onclick="openLogin()">Iniciar Sesión Admin</button></nav>
+
+<div id="pub">
+<div class="hero" id="hero"><div><h1 id="hT"></h1><p id="hP"></p>
+<div class="sr"><input id="q" placeholder="Buscar especialidad o médico..." oninput="renderPub()"><a class="btn sm" href="#doctores" style="padding:10px 18px">Ver especialistas</a></div></div><div class="ph">👩‍⚕️</div></div>
+<section id="servicios"><h2>Servicios Destacados</h2><div class="g" id="gS"></div></section>
+<section id="doctores"><h2>Nuestros Especialistas</h2>
+<select id="mod" onchange="renderPub()" style="max-width:260px"><option value="">Todas las modalidades</option><option>Presencial</option><option>Telemedicina</option></select><div class="g" id="gD"></div></section>
+<section id="reserva"><h2>Reserve su Cita</h2>
+<div class="c step" id="s1"><h3><span>1</span>Servicio y motivo</h3><div class="two"><div><label>Servicio / tipo de cita</label><select id="sv" onchange="pickS(this.value)"></select></div><div><label>Motivo de consulta</label><input id="mo" placeholder="Ej. dolor de cabeza"></div></div><small id="info"></small></div>
+<div class="two"><div class="c step off" id="s2"><h3><span>2</span>Día disponible</h3><div id="cal"></div></div>
+<div class="c step off" id="s3"><h3><span>3</span>Hora</h3><div class="sl" id="sl"><small>Seleccione un día</small></div></div></div>
+<div class="c step off" id="s4"><h3><span>4</span>Datos del paciente</h3><div class="two"><div><label>Nombre</label><input id="nm"><label>DNI</label><input id="dn" maxlength="12"></div><div><label>Teléfono</label><input id="tl" type="tel"><label>Correo</label><input id="em" type="email"></div></div>
+<div id="rs"></div><button class="btn" onclick="book()">Aceptar y Agendar</button></div></section></div>
+
+<div id="adm" class="hid"><section><div style="display:flex;justify-content:space-between;align-items:center"><h2>Panel de Administración</h2><button class="btn o sm" onclick="logout()">Cerrar sesión</button></div>
+<div class="st" id="st"></div><div class="tabs"><button class="btn sm" onclick="tab('tC')">Citas</button><button class="btn sm" onclick="tab('tS')">Servicios</button><button class="btn sm" onclick="tab('tG')">Configuración</button></div>
+<div id="tC" class="c tb"></div><div id="tS" class="c hid"></div><div id="tG" class="c hid"></div></section></div>
+
+<footer id="ft"></footer>
+<div class="md" id="lm"><div class="c"><h3>Acceso Administrador</h3><label>Usuario</label><input id="lu"><label>Contraseña</label><input id="lp" type="password" onkeydown="if(event.key=='Enter')doLogin()"><div id="le"></div><button class="btn" onclick="doLogin()">Ingresar</button> <button class="btn o" onclick="$('#lm').classList.remove('show')">Cancelar</button></div></div>
+
+<script>
+const URL_API='https://script.google.com/macros/s/AKfycbxFHOoGdGyCRBsa9OYuJQQdrQXaRv5Sov3pXaucMNt04SNd9aXHorDgAo9Vkov17xo/exec';
+const API=async(a,p)=>{
+if(!URL_API.endsWith('/exec'))return{ok:false,error:'Falta configurar URL_API en index.html con la URL /exec de tu app web.'};
+const r=await fetch(URL_API,{method:'POST',body:JSON.stringify({a,p})}),t=await r.text();
+try{return JSON.parse(t)}catch(e){return{ok:false,error:'El backend no devolvió JSON. Revisa que la implementación tenga acceso "Cualquier persona" y que la URL sea la de /exec.'}}};
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let P={config:{},servicios:[],doctores:[]},A={},tk='',B={sv:null,f:null,h:null,m:new Date()};
+async function call(a,p){const r=await API(a,{...p,token:tk});if(!r||!r.ok)throw new Error(r?r.error:'Sin respuesta');return r.data}
+async function init(){try{P=await call('publico');cfgUI(P.config);renderPub();cal()}catch(e){$('#hT').textContent='Error: '+e.message}}
+function cfgUI(c){document.title=c.titulo;$('#brand').textContent=c.titulo;$('#lg').innerHTML=c.logo?`<img src="${esc(c.logo)}" alt="">`:'🩺';
+$('#hT').textContent=c.heroTitulo;$('#hP').textContent=c.heroTexto;$('#ft').textContent=c.footer;
+$('#hero').style.backgroundImage=c.banner?`linear-gradient(rgba(240,249,255,.85),rgba(240,249,255,.85)),url("${esc(c.banner)}")`:''}
+function renderPub(){const q=$('#q').value.toLowerCase(),m=$('#mod').value;
+$('#gS').innerHTML=P.servicios.filter(s=>(s.nombre+s.tipo).toLowerCase().includes(q)).map(s=>`<div class="c"><div class="ic">${esc(s.icono)}</div><h3>${esc(s.nombre)}</h3><span class="tag">${esc(s.tipo)}</span><p>${s.duracion} min · S/ ${s.precio}</p><button class="btn sm" onclick="go('${s.id}')">Reservar cita</button></div>`).join('');
+$('#gD').innerHTML=P.doctores.filter(d=>(d.nombre+d.especialidad).toLowerCase().includes(q)&&(!m||d.modalidad.includes(m))).map(d=>`<div class="c"><div class="ic on">👨‍⚕️</div><h3>${esc(d.nombre)}</h3><b>${esc(d.especialidad)}</b><p>⭐ ${d.rating} · ${esc(d.experiencia)}<br>${esc(d.sede)} · ${esc(d.modalidad)}</p></div>`).join('');
+$('#sv').innerHTML='<option value="">Seleccione...</option>'+P.servicios.map(s=>`<option value="${s.id}">${esc(s.icono+' '+s.nombre+' ('+s.tipo+')')}</option>`).join('')}
+function go(id){$('#sv').value=id;pickS(id);$('#reserva').scrollIntoView({behavior:'smooth'})}
+function pickS(id){B.sv=P.servicios.find(s=>s.id==id)||null;B.f=B.h=null;$('#s2').classList.toggle('off',!B.sv);$('#s3').classList.add('off');$('#s4').classList.add('off');$('#sl').innerHTML='<small>Seleccione un día</small>';
+$('#info').textContent=B.sv?`${B.sv.tipo==='Consecutiva'?'Cita consecutiva: 2 bloques seguidos de '+B.sv.duracion+' min · ':'Duración '+B.sv.duracion+' min · '}S/ ${B.sv.precio}`:'';cal()}
+function mv(n){B.m=new Date(B.m.getFullYear(),B.m.getMonth()+n,1);cal()}
+function cal(){const y=B.m.getFullYear(),m=B.m.getMonth(),n=new Date(y,m+1,0).getDate(),dias=String(P.config.diasAtencion||'1,2,3,4,5,6').split(','),t=new Date();t.setHours(0,0,0,0);
+let h=`<div class="ch"><button onclick="mv(-1)">‹</button><b>${B.m.toLocaleDateString('es',{month:'long',year:'numeric'})}</b><button onclick="mv(1)">›</button></div><div class="cg">`+'DLMMJVS'.split('').map(d=>`<i>${d}</i>`).join('')+'<span></span>'.repeat(new Date(y,m,1).getDay());
+for(let d=1;d<=n;d++){const dt=new Date(y,m,d),ok=dt>=t&&dias.includes(String(dt.getDay())),f=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+h+=`<button class="d ${ok?'ok':''} ${B.f==f?'sel':''}" ${ok?'':'disabled'} onclick="pickD('${f}')">${d}</button>`}$('#cal').innerHTML=h+'</div>'}
+async function pickD(f){B.f=f;B.h=null;cal();$('#s3').classList.remove('off');$('#s4').classList.add('off');$('#sl').innerHTML='Cargando...';
+try{const s=await call('slots',{servicioId:B.sv.id,fecha:f});$('#sl').innerHTML=s.length?s.map(x=>`<button onclick="pickH('${x}',this)">${x}</button>`).join(''):'<small>Sin horarios este día</small>'}catch(e){$('#sl').textContent=e.message}}
+function pickH(h,b){B.h=h;document.querySelectorAll('#sl button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');$('#s4').classList.remove('off')}
+async function book(){const r=$('#rs');r.innerHTML='';try{const d=await call('reservar',{servicioId:B.sv.id,fecha:B.f,hora:B.h,nombre:$('#nm').value.trim(),dni:$('#dn').value.trim(),telefono:$('#tl').value.trim(),correo:$('#em').value.trim(),motivo:$('#mo').value});
+const w=P.config.whatsappAdmin,tx=encodeURIComponent(`Hola, soy ${$('#nm').value}. Solicité una cita de ${B.sv.nombre} el ${B.f} a las ${B.h}. Mi teléfono: ${$('#tl').value}`);
+r.innerHTML=`<div class="msg ok">✅ Cita registrada (${d.id}) para el ${B.f} a las ${B.h}. Le contactaremos para confirmar.</div>`+(w?`<p><a class="btn o sm" target="_blank" rel="noopener" href="https://wa.me/${waN(w)}?text=${tx}">💬 Avisar por WhatsApp desde mi número</a></p>`:'');pickD(B.f);$('#s4').classList.add('off')}catch(e){r.innerHTML=`<div class="msg er">${esc(e.message)}</div>`}}
+/* ADMIN */
+function openLogin(){if(tk)return showAdm();$('#lm').classList.add('show')}
+async function doLogin(){try{const d=await call('login',{usuario:$('#lu').value,password:$('#lp').value});tk=d.token;$('#lm').classList.remove('show');showAdm()}catch(e){$('#le').innerHTML=`<div class="msg er">${esc(e.message)}</div>`}}
+function logout(){tk='';$('#adm').classList.add('hid');$('#pub').classList.remove('hid');$('#bAdm').textContent='Iniciar Sesión Admin'}
+async function showAdm(){try{A=await call('admin');}catch(e){tk='';return alert(e.message)}$('#pub').classList.add('hid');$('#adm').classList.remove('hid');$('#bAdm').textContent='Panel Admin';drawAdm()}
+function tab(id){['tC','tS','tG'].forEach(t=>$('#'+t).classList.toggle('hid',t!=id))}
+function drawAdm(){const c=A.citas,hoy=new Date().toISOString().slice(0,10),n=e=>c.filter(x=>x.estado==e).length;
+$('#st').innerHTML=[['Citas hoy',c.filter(x=>x.fecha==hoy).length],['Pendientes',n('Pendiente')],['Confirmadas',n('Confirmada')],['Finalizadas',n('Finalizada')+n('Atendida')],['Declinadas',n('Declinada')+n('Cancelada')]].map(x=>`<div class="c"><b>${x[1]}</b>${x[0]}</div>`).join('');
+$('#tC').innerHTML=`<table><tr><th>Fecha</th><th>Hora</th><th>Paciente</th><th>Contacto</th><th>Servicio</th><th>Estado / Acciones</th></tr>`+c.map(x=>`<tr><td>${esc(x.fecha)}</td><td>${esc(x.hora)}</td><td>${esc(x.nombre)}<br><small>DNI ${esc(x.dni)}</small></td><td>${esc(x.telefono)}<br><small>${esc(x.correo)}</small></td><td>${esc(x.servicio)}<br><small>${esc(x.tipo)} · ${esc(x.doctor)}</small></td><td>${acc(x)}</td></tr>`).join('')+'</table>';
+const dOpt=A.doctores.map(d=>`<option value="${d.id}">${esc(d.nombre)}</option>`).join('');
+$('#tS').innerHTML=`<h3>Servicio</h3><div class="two"><div><input type="hidden" id="fi"><label>Nombre</label><input id="fn"><label>Tipo</label><select id="ft2">${['Programada','Consecutiva','Telemedicina','Control','Urgente'].map(t=>`<option>${t}</option>`).join('')}</select><label>Doctor</label><select id="fd">${dOpt}</select></div><div><label>Duración (min)</label><input id="fu" type="number" value="30"><label>Precio</label><input id="fp" type="number" value="0"><label>Ícono (emoji)</label><input id="fc" value="🩺"></div></div><button class="btn sm" onclick="saveS()">Guardar servicio</button> <button class="btn o sm" onclick="drawAdm();tab('tS')">Nuevo</button><div class="tb"><table><tr><th></th><th>Servicio</th><th>Tipo</th><th>Min</th><th>Precio</th><th>Activo</th><th></th></tr>`+A.servicios.map(s=>`<tr><td>${esc(s.icono)}</td><td>${esc(s.nombre)}</td><td>${esc(s.tipo)}</td><td>${s.duracion}</td><td>${s.precio}</td><td><input type="checkbox" style="width:auto" ${s.activo===true?'checked':''} onchange="togS('${s.id}',this.checked)"></td><td><button class="btn o sm" onclick="editS('${s.id}')">Editar</button></td></tr>`).join('')+'</table></div>';
+const k=[['titulo','Nombre de la página'],['logo','URL del logo (imagen)'],['banner','URL del banner superior (imagen)'],['heroTitulo','Título del banner'],['heroTexto','Texto del banner'],['footer','Texto del footer'],['telefono','Teléfono'],['whatsappAdmin','WhatsApp del administrador (con código de país, ej. 51999999999)'],['codigoPais','Código de país por defecto (ej. 51)'],['horaInicio','Hora inicio (HH:mm)'],['horaFin','Hora fin (HH:mm)'],['diasAtencion','Días de atención (0=Dom ... 6=Sáb)']];
+$('#tG').innerHTML='<h3>Configuración</h3><div class="two">'+k.map(x=>`<div><label>${x[1]}</label><input data-k="${x[0]}" value="${esc(A.config[x[0]])}"></div>`).join('')+'</div><div id="gm"></div><button class="btn" onclick="saveG()">Guardar configuración</button>'}
+function waN(t){t=String(t||'').replace(/\D/g,'');return t.length<=9?((P.config&&P.config.codigoPais)||'51')+t:t}
+function wl(x){return `<a class="btn o sm" target="_blank" rel="noopener" style="margin:2px" title="Escribir al paciente" href="https://wa.me/${waN(x.telefono)}?text=${encodeURIComponent('Hola '+x.nombre+', sobre su cita de '+x.servicio+' del '+x.fecha+' a las '+x.hora)}">💬</a>`}
+function acc(x){const e=x.estado,c={Pendiente:'#f59e0b',Confirmada:'#0284C7',Finalizada:'#10B981',Atendida:'#10B981',Declinada:'#dc2626',Cancelada:'#dc2626'}[e]||'#64748B';
+const b=(t,st,k)=>`<button class="btn sm ${k||''}" style="margin:2px" onclick="setE('${x.id}','${st}')">${t}</button>`;
+return `<span class="tag" style="background:${c};color:#fff">${esc(e)}</span><div style="margin-top:6px;white-space:nowrap">`+(e=='Pendiente'?b('Aceptar','Confirmada')+b('Declinar','Declinada','r'):e=='Confirmada'?b('Finalizar','Finalizada')+b('Declinar','Declinada','r'):'')+wl(x)+'</div>'}
+async function setE(id,e){if(e=='Declinada'&&!confirm('¿Declinar esta cita? Se liberará el horario y se quitará de Google Calendar.'))return;try{const r=await call('estadoCita',{id,estado:e});A=await call('admin');drawAdm();if(r&&r.aviso)alert('Cita actualizada. '+r.aviso)}catch(x){alert(x.message)}}
+async function togS(id,a){await call('toggleServicio',{id,activo:a});A=await call('admin');P=await call('publico');renderPub();drawAdm();tab('tS')}
+function editS(id){const s=A.servicios.find(x=>x.id==id);$('#fi').value=s.id;$('#fn').value=s.nombre;$('#ft2').value=s.tipo;$('#fd').value=s.doctorId;$('#fu').value=s.duracion;$('#fp').value=s.precio;$('#fc').value=s.icono}
+async function saveS(){try{await call('guardarServicio',{id:$('#fi').value,nombre:$('#fn').value,tipo:$('#ft2').value,doctorId:$('#fd').value,duracion:$('#fu').value,precio:$('#fp').value,icono:$('#fc').value});A=await call('admin');P=await call('publico');renderPub();drawAdm();tab('tS')}catch(e){alert(e.message)}}
+async function saveG(){const c={};document.querySelectorAll('[data-k]').forEach(i=>c[i.dataset.k]=i.value);try{await call('guardarConfig',{config:c});A.config=c;P.config=c;cfgUI(c);$('#gm').innerHTML='<div class="msg ok">Guardado ✅</div>'}catch(e){$('#gm').innerHTML=`<div class="msg er">${esc(e.message)}</div>`}}
+init();
+</script></body></html>
