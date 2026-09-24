@@ -59,7 +59,7 @@ footer{background:var(--t);color:#cbd5e1;text-align:center;padding:26px 5%}
 <div class="md" id="lm"><div class="c"><h3>Acceso Administrador</h3><label>Usuario</label><input id="lu"><label>Contraseña</label><input id="lp" type="password" onkeydown="if(event.key=='Enter')doLogin()"><div id="le"></div><button class="btn" onclick="doLogin()">Ingresar</button> <button class="btn o" onclick="$('#lm').classList.remove('show')">Cancelar</button></div></div>
 
 <script>
-const URL_API='https://script.google.com/macros/s/AKfycbyrAupRnz6NpdRd7MNvimxc9QCqDlE4tVdbD7F3pzM_Op5y2w8383xPf_GcJUn2KvM/exec';
+const URL_API='https://script.google.com/macros/s/AKfycbx-ndzj_4P79K0b9B3kHqNwa4g5_aQpsCnxMrCznP05EvJfepIX4urSINUk0_jnKsk/exec';
 const API=async(a,p)=>{
 if(!URL_API.endsWith('/exec'))return{ok:false,error:'Falta configurar URL_API en index.html con la URL /exec de tu app web.'};
 const r=await fetch(URL_API,{method:'POST',body:JSON.stringify({a,p})}),t=await r.text();
